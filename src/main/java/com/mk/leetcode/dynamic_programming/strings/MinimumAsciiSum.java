@@ -1,5 +1,7 @@
 package com.mk.leetcode.dynamic_programming.strings;
 
+import java.util.Arrays;
+
 /**
  * <a href="https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings">Minimum ASCII Delete Sum for Two Strings</a>
  */
@@ -7,7 +9,15 @@ public class MinimumAsciiSum {
 
     public int minimumDeleteSum(String s1, String s2) {
         Integer[][] memo = new Integer[s1.length()][s2.length()];
-        return minimumDeleteSumUtil(s1, s2, s1.length() - 1, s2.length() - 1, memo);
+        int answer = minimumDeleteSumUtil(s1, s2, s1.length() - 1, s2.length() - 1, memo);
+        print2DArray(memo);
+        return answer;
+    }
+
+    private static void print2DArray(Integer[][] memo) {
+        for (Integer[] row : memo) {
+            System.out.println(Arrays.toString(row));
+        }
     }
 
     private int minimumDeleteSumUtil(String s1, String s2, int i, int j, Integer[][] memo) {
