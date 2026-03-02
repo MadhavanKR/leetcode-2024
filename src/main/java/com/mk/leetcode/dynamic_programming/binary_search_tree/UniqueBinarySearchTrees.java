@@ -10,7 +10,9 @@ public class UniqueBinarySearchTrees {
 
     public int numTrees(int n) {
         Map<String, Integer> memo = new HashMap<>();
-        return numTreesUtil(1, n, memo);
+        int ans = numTreesUtil(1, n, memo);
+        System.out.println(memo);
+        return ans;
     }
 
     public int numTreesUtil(int m, int n, Map<String, Integer> memo) {
